@@ -3,14 +3,15 @@
 
 set -e
 
-echo "Installing dependencies..."
+echo "Upgrading pip..."
+pip install --upgrade pip
+
+echo "Installing dependencies globally..."
 pip install -r requirements.txt
 
 echo "Creating data directory..."
 mkdir -p data
 
-echo "Initializing database..."
-python render_start.py
-
 echo "Build complete!"
+echo "Database will be initialized on first request."
 

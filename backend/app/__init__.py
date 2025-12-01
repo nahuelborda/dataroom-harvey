@@ -16,6 +16,14 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
 
+    # Create tables on startup (for Render deployment)
+    with app.app_context():
+        try:
+            db.create_all()
+            print("Database tables created/verified!")
+        except Exception as e:
+            print(f"Database init skipped: {e}")
+
     # Configure CORS - allow multiple origins
     allowed_origins = [
         app.config["FRONTEND_ORIGIN"],
