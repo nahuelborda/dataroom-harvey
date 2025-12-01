@@ -8,5 +8,4 @@ source .venv/bin/activate
 export FLASK_APP=app.main:app
 export FLASK_DEBUG=1
 
-# Run the server on all interfaces with debug mode
 flask run --host=0.0.0.0 --port 5000 --debug
