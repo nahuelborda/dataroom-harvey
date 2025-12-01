@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0a1929 0%, #102a43 50%, #1a365d 100%);
+  min-height: 100vh;
+  color: #d9e2ec;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+code, pre {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(16, 42, 67, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(98, 125, 152, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(98, 125, 152, 0.8);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(16, 42, 67, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(98, 125, 152, 0.2);
+}
+
+.glass-light {
+  background: rgba(36, 59, 83, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(98, 125, 152, 0.15);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-xl
+         hover:from-teal-400 hover:to-teal-500 transition-all duration-200
+         shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40
+         active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-midnight-700 text-midnight-100 font-medium rounded-xl
+         hover:bg-midnight-600 transition-all duration-200
+         border border-midnight-500/50 hover:border-midnight-400/50
+         active:scale-[0.98];
+}
+
+.btn-danger {
+  @apply px-4 py-2 bg-coral-600/20 text-coral-400 font-medium rounded-lg
+         hover:bg-coral-600/30 transition-all duration-200
+         border border-coral-500/30 hover:border-coral-500/50
+         active:scale-[0.98];
+}
+
+/* Input styles */
+.input {
+  @apply w-full px-4 py-3 bg-midnight-800/50 border border-midnight-600/50 rounded-xl
+         text-midnight-100 placeholder-midnight-400
+         focus:outline-none focus:border-teal-500/50 focus:ring-2 focus:ring-teal-500/20
+         transition-all duration-200;
+}
+
+/* Card styles */
+.card {
+  @apply glass rounded-2xl p-6 transition-all duration-300;
+}
+
+.card-hover {
+  @apply hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10;
+}
+
+/* Animation delays for staggered effects */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
