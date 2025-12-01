@@ -10,6 +10,12 @@ from app.google_client import (
 drive_bp = Blueprint("drive", __name__)
 
 
+# Configure which folder to show files from (set to None to show all files)
+# To find a folder ID: open the folder in Google Drive, the ID is in the URL
+# Example: https://drive.google.com/drive/folders/FOLDER_ID_HERE
+ALLOWED_FOLDER_ID = "1Fcc9kd_Wca3CGXT6v2t99BS0JObh0bYl"
+
+
 @drive_bp.route("/files")
 @require_auth
 def list_files():
@@ -33,17 +39,19 @@ def list_files():
         page_size = request.args.get("page_size", 20, type=int)
         page_token = request.args.get("page_token")
         query = request.args.get("q")
+        folder_id = request.args.get("folder_id", ALLOWED_FOLDER_ID)
 
         # Limit page size
         page_size = min(page_size, 100)
 
         # List files from Drive
-        print(f"[DEBUG] Calling list_drive_files with page_size={page_size}")
+        print(f"[DEBUG] Calling list_drive_files with page_size={page_size}, folder_id={folder_id}")
         result = list_drive_files(
             access_token=access_token,
             page_size=page_size,
             page_token=page_token,
             query=query,
+            folder_id=folder_id,
         )
         print(f"[DEBUG] Got {len(result.get('files', []))} files")
 

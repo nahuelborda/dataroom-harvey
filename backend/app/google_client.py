@@ -133,8 +133,9 @@ def list_drive_files(
     page_size: int = 20,
     page_token: Optional[str] = None,
     query: Optional[str] = None,
+    folder_id: Optional[str] = None,
 ) -> dict:
-    """List files from Google Drive."""
+    """List files from Google Drive, optionally scoped to a specific folder."""
     params = {
         "pageSize": page_size,
         "fields": "files(id,name,mimeType,modifiedTime,size,webViewLink,iconLink),nextPageToken",
@@ -146,6 +147,11 @@ def list_drive_files(
 
     # Build query - exclude folders by default, add search if provided
     q_parts = ["mimeType != 'application/vnd.google-apps.folder'"]
+    
+    # Scope to specific folder if provided
+    if folder_id:
+        q_parts.append(f"'{folder_id}' in parents")
+    
     if query:
         q_parts.append(f"name contains '{query}'")
     params["q"] = " and ".join(q_parts)
