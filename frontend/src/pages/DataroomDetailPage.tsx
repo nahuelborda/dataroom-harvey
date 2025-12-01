@@ -137,7 +137,7 @@ export default function DataroomDetailPage() {
     });
   }
 
-  function getFileIcon(mimeType: string | null) {
+  function getFileIcon(_mimeType: string | null) {
     // Could add more specific icons based on mime type
     return FileText;
   }
