@@ -2,6 +2,10 @@
 
 A full-stack web application that allows users to connect their Google Drive, browse files, and import them into organized "datarooms" for secure local storage and management.
 
+## Loom introduction
+
+https://www.loom.com/share/38588a29e5d14601abc9b4198a53969e
+
 ## Project Overview
 
 **Goal:** Build a web app that lets users:
