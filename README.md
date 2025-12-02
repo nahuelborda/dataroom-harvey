@@ -362,7 +362,3 @@ dataroom-app/
 - [ ] Implement file sharing between users
 - [ ] Add rate limiting on sensitive endpoints
 - [ ] Support additional OAuth providers
-
-## License
-
-MIT
